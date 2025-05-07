@@ -4,34 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eliminar Producto</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
   </head>
+
   <body>
+     <!-- Contenedor principal de la página-->
     <div class="container mt-5">
       <div class="card">
         <div class="card-body text-center">
           <h1 class="card-title text-danger">Eliminar Producto</h1>
-          <p class="card-text">
-            ¿Estás seguro de que deseas eliminar el producto
-            <strong>{{ producto.tipo_prenda }} - {{ producto.marca }}</strong>?
-          </p>
-          <form
-            method="POST"
-            action="{% url 'eliminar_producto' producto.id %}"
-          >
+          <!-- Texto informativo sobre el producto que se eliminará -->
+          <p class="card-text"> ¿Estás seguro de que deseas eliminar el producto <strong>{{ producto.tipo_prenda }} - {{ producto.marca }}</strong>? </p>
+           <!-- Formulario para confirmar la eliminación del producto -->
+          <form method="POST" action="{% url 'eliminar_producto' producto.id %}">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger btn-lg">
-              Confirmar Eliminación
-            </button>
-            <a
-              href="{% url 'lista_productos' %}"
-              class="btn btn-secondary btn-lg ml-2"
-            >
-              Cancelar
-            </a>
+            <button type="submit" class="btn btn-danger btn-lg"> Confirmar Eliminación </button>
+            <a href="{% url 'lista_productos' %}" class="btn btn-secondary btn-lg ml-2"> Cancelar </a>
           </form>
         </div>
       </div>

@@ -10,83 +10,49 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
   </head>
+  <!-- Contenedor principal de la página-->
   <body>
     <div class="container mt-5">
       <h1 class="text-center mb-4">Editar Producto</h1>
+      <!-- Formulario para editar un producto -->
       <form method="POST" action="{% url 'editar_producto' producto.id %}">
         {% csrf_token %}
         <div class="form-group">
           <label for="tipo_prenda">Tipo de Prenda:</label>
-          <input
-            type="text"
-            id="tipo_prenda"
-            name="tipo_prenda"
-            value="{{ producto.tipo_prenda }}"
-            class="form-control"
-            required
-          />
+          <input type="text" id="tipo_prenda" name="tipo_prenda" value="{{ producto.tipo_prenda }}" class="form-control" required/>
         </div>
 
         <div class="form-group">
           <label for="talla">Talla:</label>
-          <input
-            type="text"
-            id="talla"
-            name="talla"
-            value="{{ producto.talla }}"
-            class="form-control"
-            required
-          />
+          <input type="text" id="talla" name="talla" value="{{ producto.talla }}" class="form-control" required/>
         </div>
 
         <div class="form-group">
           <label for="genero">Género:</label>
           <select id="genero" name="genero" class="form-control" required>
-            <option value="Hombre" {% if producto.genero == "Hombre" %}selected{% endif %}>
-              Hombre
-            </option>
-            <option value="Mujer" {% if producto.genero == "Mujer" %}selected{% endif %}>
-              Mujer
-            </option>
-            <option value="Unisex" {% if producto.genero == "Unisex" %}selected{% endif %}>
-              Unisex
-            </option>
+            <option value="Hombre" {% if producto.genero == "Hombre" %}selected{% endif %}> Hombre </option>
+            <option value="Mujer" {% if producto.genero == "Mujer" %}selected{% endif %}> Mujer </option>
+            <option value="Unisex" {% if producto.genero == "Unisex" %}selected{% endif %}> Unisex </option>
           </select>
         </div>
 
         <div class="form-group">
           <label for="marca">Marca:</label>
-          <input
-            type="text"
-            id="marca"
-            name="marca"
-            value="{{ producto.marca }}"
-            class="form-control"
-            required
-          />
+          <input type="text" id="marca" name="marca" value="{{ producto.marca }}" class="form-control" required/>
         </div>
 
         <div class="form-group">
           <label for="precio">Precio:</label>
-          <input
-            type="number"
-            id="precio"
-            name="precio"
-            step="0.01"
-            value="{{ producto.precio }}"
-            class="form-control"
-            required
-          />
+          <input type="number" id="precio" name="precio" step="0.01" value="{{ producto.precio }}" class="form-control" required/>
         </div>
-
+         <!-- Botón para guardar los cambios del formulario -->
         <button type="submit" class="btn btn-primary btn-block">
           Guardar Cambios
         </button>
+        <!-- Enlace para volver a la lista de productos -->
       </form>
       <div class="text-center mt-3">
-        <a href="{% url 'lista_productos' %}" class="btn btn-secondary">
-          Volver a la lista de productos
-        </a>
+        <a href="{% url 'lista_productos' %}" class="btn btn-secondary"> Volver a la lista de productos </a>
       </div>
     </div>
   </body>
