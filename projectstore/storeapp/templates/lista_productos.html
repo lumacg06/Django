@@ -18,26 +18,22 @@
       <table class="table table-striped table-bordered">
         <thead class="table-dark">
           <tr>
-            <th>ID</th>
             <th>Tipo de Prenda</th>
             <th>Talla</th>
             <th>Género</th>
             <th>Marca</th>
             <th>Precio</th>
-            <th>Fecha Agregado</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
           {% for producto in productos %}
           <tr>
-            <td>{{ producto.id }}</td>
             <td>{{ producto.tipo_prenda }}</td>
             <td>{{ producto.talla }}</td>
             <td>{{ producto.genero }}</td>
             <td>{{ producto.marca }}</td>
             <td>${{ producto.precio }}</td>
-            <td>{{ producto.fecha_agregado }}</td>
             <!-- Enlaces para editar y eliminar el producto -->
             <td>
               <a href="{% url 'editar_producto' producto.id %}" class="btn btn-sm btn-warning">Editar</a>
